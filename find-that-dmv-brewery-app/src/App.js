@@ -1,39 +1,40 @@
 import React, { Component } from 'react';
-import Home from './Home.js';
 import './App.css';
-import { url } from 'inspector';
 
 class App extends Component {
-    state = {
-      breweries: [],
-      isLoaded: false
-  }
-    componentDidMount(){
-      const url = "https://dmv-breweries-api.herokuapp.com/";
-     fetch(url)
-     .then(res => res.json())
-     .then(res => {
-       console.log(res);
-       this.setState({
-         breweries: res.data,
-         isLoaded: true
-       });
-       console.log(this.state.breweries);
-     });
-    }
+constructor(props){
+  super(props);
 
-getBrews(evt){
-  evt.preventDefault();
-  this.componentDidMount()
+  this.state = {
+    apiUrl: "http://localhost:5000/",
+    proxyUrl: "https://cors-anywhere.herokuapp.com/",
+    breweries: []
+  };
+  this.componentDidMount = this.componentDidMount.bind(this);
 }
+
+componentDidMount(){
+  fetch("http://localhost:5000/", {
+    headers: {
+      'Accept': "application/json"
+    }
+  })
+  .then(res => res.json ())
+  .then(res => {
+    this.setState({ name: res });
+    console.log(res);
+  })
+  .catch(err => console.log(err));
+}
+
 
 render(){
   return(
-    <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">D.C. Breweries</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{this.state.name}</h6>
-              <p class="card-text">Yum</p>
+    <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">D.C. Breweries</h5>
+              <h6 className="card-subtitle mb-2 text-muted">return breweries</h6>
+              <p className="card-text">Yum</p>
             </div>
           </div>
   )
