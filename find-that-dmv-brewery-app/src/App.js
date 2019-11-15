@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
+import Breweries from './components/breweries'
 
 class App extends Component {
 constructor(props){
   super(props);
-
   this.state = {
     apiUrl: "http://localhost:5000/",
     proxyUrl: "https://cors-anywhere.herokuapp.com/",
@@ -21,7 +21,7 @@ componentDidMount(){
   })
   .then(res => res.json ())
   .then(res => {
-    this.setState({ name: res });
+    this.setState({ breweries: res });
     console.log(res);
   })
   .catch(err => console.log(err));
@@ -30,15 +30,9 @@ componentDidMount(){
 
 render(){
   return(
-    <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">D.C. Breweries</h5>
-              <h6 className="card-subtitle mb-2 text-muted">return breweries</h6>
-              <p className="card-text">Yum</p>
-            </div>
-          </div>
-  )
-}
+    <Breweries breweries={this.state.breweries} />
+    )
+  }
 }
 
 export default App;
