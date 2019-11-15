@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Home from './Home.js';
-import breweries from './data/breweries.json';
 import './App.css';
 
 class App extends Component {
@@ -16,12 +15,13 @@ class App extends Component {
   }
 render(){
   return(
-    <div className="App">
-      <Nav> </Nav>
-        <Route path="/" exact component = {Home}></Route>
-        <Route path="/breweryinfo" exact component = {BreweryInfo}></Route>
-  <Route exact path= "/breweryinfo:brewery" render = {routerProps => <BreweryInfo setBrewery = {this.setBrewery}{...routerProps}/>}{...this.state}></Route>
-    </div>
+    <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">D.C. Breweries</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Brewpub</h6>
+              <p class="card-text">Yum</p>
+            </div>
+          </div>
   );
 }
 }
