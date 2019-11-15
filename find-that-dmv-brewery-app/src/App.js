@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Breweries from './components/breweries'
+import Search from "./components/search"
 
 class App extends Component {
 constructor(props){
