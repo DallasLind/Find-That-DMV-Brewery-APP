@@ -1,28 +1,43 @@
 import React, { Component } from 'react';
 import Home from './Home.js';
 import './App.css';
+import { url } from 'inspector';
 
 class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      brewery: null
+    state = {
+      breweries: [],
+      isLoaded: false
+  }
+    componentDidMount(){
+      const url = "https://dmv-breweries-api.herokuapp.com/";
+     fetch(url)
+     .then(res => res.json())
+     .then(res => {
+       console.log(res);
+       this.setState({
+         breweries: res.data,
+         isLoaded: true
+       });
+       console.log(this.state.breweries);
+     });
     }
-    this.setBrewery = this.setBrewery.bind(this);
-  }
-  setBrewery(brewery){
-    this.setState({brewery: brewery})
-  }
+
+getBrews(evt){
+  evt.preventDefault();
+  this.componentDidMount()
+}
+
 render(){
   return(
     <div class="card">
             <div class="card-body">
               <h5 class="card-title">D.C. Breweries</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Brewpub</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{this.state.name}</h6>
               <p class="card-text">Yum</p>
             </div>
           </div>
-  );
+  )
 }
 }
+
 export default App;
