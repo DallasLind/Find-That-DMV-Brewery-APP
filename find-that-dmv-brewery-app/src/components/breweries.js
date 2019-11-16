@@ -3,6 +3,9 @@ import React from 'react'
     const Breweries= ({ breweries }) => {
       return (
         <div>
+            <button class="btn btn-outline-primary mx-5" href="#">Create</button>
+            <button class="btn btn-outline-primary mx-5" href="#">Edit</button>
+            <button class="btn btn-outline-primary mx-5" href="#">Update</button>
           <p class="h1 text-center bg-dark text-white">DMV Breweries</p>
           {breweries.map((brewery) => (
             <div className="card">
