@@ -3,6 +3,7 @@ import {
 MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
 MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
 } from "mdbreact";
+import Edit from "./CRUD/Edit";
 import { BrowserRouter as Router } from 'react-router-dom';
 
 class NavbarPage extends Component {
@@ -28,16 +29,16 @@ render() {
               <MDBNavLink to="#!">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="#!">Github Page</MDBNavLink>
+              <MDBNavLink to="https://github.com/DallasLind/find-that-dmv-brewery-app">Github Page</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
-                  <span className="mr-2">Dropdown</span>
+                  <span className="mr-2">Database Edit Options</span>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
                   <MDBDropdownItem href="#!">Add</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Edit</MDBDropdownItem>
+                  <MDBDropdownItem MBNavLink to="./CRUD/Edit">Edit</MDBDropdownItem>
                   <MDBDropdownItem href="#!">Delete</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
