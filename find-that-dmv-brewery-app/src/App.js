@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
 import './App.css';
 import Breweries from './components/breweries'
-import Search from "./components/search"
+import NavbarPage from './components/Nav'
 
 class App extends Component {
 constructor(props){
@@ -31,7 +34,10 @@ componentDidMount(){
 
 render(){
   return(
+    <div className="App">
+    <NavbarPage></NavbarPage>
     <Breweries breweries={this.state.breweries} />
+    </div>
     )
   }
 }
