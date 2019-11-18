@@ -29,7 +29,6 @@ render() {
               <MDBNavLink to="#!">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="https://github.com/DallasLind/find-that-dmv-brewery-app">Github Page</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBDropdown>
@@ -37,6 +36,7 @@ render() {
                   <span className="mr-2">Database Edit Options</span>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
+                <MDBDropdownItem href="https://github.com/DallasLind/find-that-dmv-brewery-app/tree/master/find-that-dmv-brewery-app">Github Page</MDBDropdownItem>
                   <MDBDropdownItem href="#!">Add</MDBDropdownItem>
                   <MDBDropdownItem MBNavLink to="./CRUD/Edit">Edit</MDBDropdownItem>
                   <MDBDropdownItem href="#!">Delete</MDBDropdownItem>
